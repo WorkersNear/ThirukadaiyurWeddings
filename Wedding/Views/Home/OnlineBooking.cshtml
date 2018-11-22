@@ -1,0 +1,263 @@
+﻿@model  Wedding.Models.OnlineBooking
+
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image: url('../../Content/images/t6.jpg'); ">
+    <div class="overlay"></div>
+    <div class="fh5co-container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="display-t">
+                    <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                        <h1>Online Booking</h1>
+                        <h2>For Booking Enquiry & Details or Clarifications Please Contact +916379158216 and  +919585831457<br /></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<label id="warning" style="font-family: Work Sans, Arial, sans-serif;font-size: 18px;color:red;margin-left:559px;margin-top:19px"></label>
+<div class="fh5co-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-push-6 animate-box">
+                <h3>Please Fill Your Details</h3>
+                <form action="#">
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="mrname">Mr.Name</label>
+                            <input type="text" id="mrname" class="form-control" placeholder="couple boy name...">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="mrsname">Mrs.Name</label>
+                            <input type="text" id="mrsname" class="form-control" placeholder="couple girl name...">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="mrRasi">Mr- Rasi and Nakshatra</label>
+                            <input type="text" id="mrRasi" class="form-control" placeholder="Rasi and Nakshatra of couple boy...">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="mrsRasi">Mrs- Rasi and Nakshatra</label>
+                            <input type="text" id="mrsRasi" class="form-control" placeholder="Rasi and Nakshatra of couple girl...">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="mob">Mobile Number</label>
+                            <input type="text" id="mob" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="altermob">Alternete Mobile</label>
+                            <input type="text" id="altermob" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="fdate">Function Date</label>
+                            <input type="date" id="fdate" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="Abishegam">Type of Abishegam selection</label>
+                            <select id="Abishegam" class="form-control">
+                                <option value="select">select..</option>
+                                <option value="16kalasa">16 kalasa Prathistai</option>
+                                <option value="32kalasa">32 kalasa Prathistai</option>
+                                <option value="64kalasa">64 kalasa Prathistai</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" class="form-control" placeholder="where are you from?..">
+                        </div>
+
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="days">Abishegam Days</label>
+                            <select id="days" class="form-control">
+                                <option value="select">select..</option>
+                                <option value="1day">One day abishegam</option>
+                                <option value="2day">Two days abishegam</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="Bhramin">Are you Bhramin?</label>
+                            <select id="Bhramin" class="form-control">
+                                <option value="select">select..</option>
+                                <option value="1day">Yes</option>
+                                <option value="2day">No</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <label for="nodays">Also Arrange for</label><br>
+                        <div class="col-md-6">
+                            <input type="checkbox" id="food" value="food">
+                            Food
+                        </div>
+                        <div class="col-md-6">
+                            <input type="checkbox" id="Hotel" value="Hotel">
+                            Hotel
+                        </div>
+                        <div class="col-md-6">
+                            <input type="checkbox" id="Photography" value="Photography">
+                            Photography
+                        </div>
+                        <div class="col-md-6">
+                            <input type="checkbox" id="Videocoverage" value="Videocoverage">Video Coverage
+                        </div>
+                        <br><br><br>
+                        <p>(For Organizing, you have to Pay Rs-2000 as registration fee for temple place booking and iyer booking where the marriage function will be held.)</p>
+                        <div class="form-group">
+                            <input type="submit" value="Book Now" onclick="process();" class="btn btn-primary">
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 col-md-pull-6 animate-box">
+
+                <div class="fh5co-heading">
+                    <h2>Pooja Details</h2>
+                    <h3>Yagha Pooja Starting from the day Morning with Couples Reception With Gajan (Elephant) and Temple Mangala Vadhyam</h3>
+                    <ul style="line-height: 20px;">
+                        <li> Gaja Pooja</li>
+                        <li> Cow Pooja                                              </li>
+                        <li> Vigneshwara pooja                                      </li>
+                        <li> 16 Kalasa Prethishtai & Pooja                          </li>
+                        <li> Agni Karyam                                            </li>
+                        <li> Sri Ganapathy Homam                                    </li>
+                        <li> Navagraha Homam                                        </li>
+                        <li> Mritthunjaya Homam                                     </li>
+                        <li> Homam of the Life                                      </li>
+                        <li> Dhanvanthri Oushatha Homam                             </li>
+                        <li> Sashti Homam                                           </li>
+                        <li> Durga Homam                                            </li>
+                        <li> Sudharshana Homam                                      </li>
+                        <li> Ashta Lakshmi Homam                                    </li>
+                        <li> Maha Vishnu Homam                                      </li>
+                        <li> Sashtiapthapoorthi / Bheemaratha /Sadhabishega  Homam  </li>
+                        <li> Homam of the Whole Family Stars                        </li>
+                        <li> Poornahuti                                             </li>
+                        <li> Deeparadhanai                                          </li>
+                        <li> Theertha Abhishekam                                    </li>
+                        <li> Muhurtham                                              </li>
+                        <li> Swami Tharisanam                                       </li>
+                    </ul>
+                    <h2 style="font-size: 23px;">தாங்கள் வரும்போது கொண்டு வர வேண்டியவை​</h2>
+                    <ul style="line-height: 20px;">
+                        <li>தம்பதிகளுக்கு முகூர்த்த புடவை & வேஷ்டி</li>
+                        <li>  திருமாங்கல்யம்                                              </li>
+                        <li>  காசி தீர்த்தம்(optional)                                      </li>
+                        <li>  தானம் கழிக்க வேண்டிய புடவை மற்றும் துண்டு            </li>
+                        <li>  தம்பதிகள் அமர ஜமக்காளம் (தரை விரிப்பு)                </li>
+                        <li>  உறவினர்கள் அமர ஜமக்காளம் (தரை விரிப்பு)              </li>
+                        <li>  முகூர்த்த மாலை - 2                                         </li>
+                        <li>  மாத்து மாலை - 2                                           </li>
+                        <li>  உதிரிப் பூ                                                    </li>
+                        <li>  தேங்காய் - 7 (மஞ்சள் பூசியது)                             </li>
+                        <li>  சந்தனம் மற்றும் கிண்ணம்                                  </li>
+                        <li>  சர்க்கரை, கல்கண்டு மற்றும் சாக்லேட்                      </li>
+                        <li>  வெற்றிலை பாக்கு                                           </li>
+                        <li>  சீர்வரிசைக்கு உள்ள தட்டு -7 மற்றும் அதற்கான பழங்கள்  </li>
+                        <li>  தாம்பூல பை</li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+    });
+
+    function process() {
+        var onlineBooking = new Object();
+        onlineBooking.MrName = $("#mrname").val();
+        onlineBooking.MrsName = $('#mrsname').val();
+        onlineBooking.MrRasiandNakshatra = $('#mrRasi').val();
+        onlineBooking.MrsRasiandNakshatra = $('#mrsRasi').val();
+        onlineBooking.MobileNumber = $('#mob').val();
+        onlineBooking.AlterneteMobile = $('#altermob').val();
+        onlineBooking.FunctionDate = $('#fdate').val();
+        onlineBooking.Location = $('#location').val();
+        onlineBooking.TypeofAbishegam = $('#Abishegam :selected').text();
+        onlineBooking.AbishegamDays = $('#days :selected').text();
+        onlineBooking.Bhramin = $('#Bhramin :selected').text();
+        onlineBooking.Food = "no";
+        onlineBooking.Hotel = "no";
+        onlineBooking.Photography = "no";
+        onlineBooking.VideoCoverage = "no";
+
+        if ($('#food').prop("checked") == true) {
+            onlineBooking.Food = "Yes"
+        }
+        if ($('#Hotel').prop("checked") == true) {
+            onlineBooking.Hotel = "Yes"
+        }
+        if ($('#Photography').prop("checked") == true) {
+            onlineBooking.Photography = "Yes"
+        }
+        if ($('#Videocoverage').prop("checked") == true) {
+            onlineBooking.VideoCoverage = "Yes"
+        }
+
+        if (onlineBooking.MobileNumber != null && onlineBooking.MobileNumber != "") {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("OnlineBooking", "Home")',
+                data: JSON.stringify(onlineBooking),
+                data: onlineBooking,
+                //contentType: "application/json; charset=utf-8",
+                //dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        location.href = "/Home/OnlineBookingconfirmation/";
+                    } else {
+                        location.href = "/Home/OnlineBookingconfirmation/";
+                    }
+                },
+                failure: function (response) {
+                    location.href = "/Home/OnlineBookingconfirmation/";
+                },
+                error: function (response) {
+                    location.href = "/Home/OnlineBookingconfirmation/";
+
+                }
+            });
+        }
+        else {
+            $('#warning').text("Error: Please mention the phone number atleast.then click again Book Now Button we will contact you!");
+            return false;
+        }
+
+    }
+</script>

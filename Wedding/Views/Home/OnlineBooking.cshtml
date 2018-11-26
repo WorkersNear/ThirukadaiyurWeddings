@@ -1,6 +1,6 @@
 ﻿@model  Wedding.Models.OnlineBooking
 
-<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image: url('../../Content/images/t6.jpg'); ">
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image: url('../../Content/images/d1.jpg'); ">
     <div class="overlay"></div>
     <div class="fh5co-container">
         <div class="row">
@@ -8,14 +8,17 @@
                 <div class="display-t">
                     <div class="display-tc animate-box" data-animate-effect="fadeIn">
                         <h1>Online Booking</h1>
-                        <h2>For Booking Enquiry & Details or Clarifications Please Contact +916379158216 and  +919585831457<br /></h2>
+                        <h2>For Booking Enquiry & Details or Clarifications Please Contact +916379158216 and  +919585831457<br />
+                            <a>அபிஷேக முறைகள் மற்றும் முன்பதிவு விபரங்கள் கீழே கொடுக்கப்பட்டுள்ளது</a> </h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<label id="warning" style="font-family: Work Sans, Arial, sans-serif;font-size: 18px;color:red;margin-left:559px;margin-top:19px"></label>
+
+
+<label id="warning" style="font-family: Work Sans, Arial, sans-serif;font-size: 18px;color:red;margin-left:59px;margin-top:19px"></label>
 <div class="fh5co-section">
     <div class="container">
         <div class="row">
@@ -189,8 +192,20 @@
 
     </div>
 </div>
+<!--Success Model-->
+<div class="modal fade" id="Successmsg" tabindex="-1" role="dialog" aria-labelledby="SuccessmsgLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
 
+            <div class="modal-body">
+                <span class="glyphicon glyphicon-ok-circle statusscheduled" style="font-size:40px;padding-left:258px;    color: limegreen;"></span> <h5 class="modal-title" id="exampleModalLabel" style="text-align:center;font-size:20px">Success!</h5>
+                <p>Your Details Received ! We will contact you as soon as possible. For Clarifications, Please Contact +916379158216 and  +919585831457</p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 245px;" onclick="saveconfirmation();">Ok</button>
+            </div>
 
+        </div>
+    </div>
+</div>
 
 
 
@@ -199,7 +214,9 @@
 
     });
 
-    function process() {
+    function process(e) {
+       // e.preventDefault();
+       
         var onlineBooking = new Object();
         onlineBooking.MrName = $("#mrname").val();
         onlineBooking.MrsName = $('#mrsname').val();
@@ -236,28 +253,36 @@
                 url: '@Url.Action("OnlineBooking", "Home")',
                 data: JSON.stringify(onlineBooking),
                 data: onlineBooking,
+                
                 //contentType: "application/json; charset=utf-8",
                 //dataType: "json",
                 success: function (response) {
+                    alert('dsgsd');
+                    debugger;
                     if (response != null) {
-                        location.href = "/Home/OnlineBookingconfirmation/";
+                        $('#Successmsg').modal('show');
+                       // location.href = "/Home/OnlineBookingconfirmation/";
                     } else {
-                        location.href = "/Home/OnlineBookingconfirmation/";
+                        $('#Successmsg').modal('show');
                     }
                 },
                 failure: function (response) {
-                    location.href = "/Home/OnlineBookingconfirmation/";
+                    //$('#Successmsg').modal('show');
                 },
                 error: function (response) {
-                    location.href = "/Home/OnlineBookingconfirmation/";
+                    //$('#Successmsg').modal('show');
 
                 }
             });
         }
         else {
-            $('#warning').text("Error: Please mention the phone number atleast.then click again Book Now Button we will contact you!");
+            $('#warning').text("Error: Please mention the phone number atleast.then click the Book Now Button again! we will contact you.");
             return false;
         }
 
+    }
+    function saveconfirmation()
+    {
+        location.href = "/Home/OnlineBookingconfirmation/";
     }
 </script>

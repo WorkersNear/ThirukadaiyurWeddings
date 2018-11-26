@@ -161,6 +161,12 @@
     <Content Include="Content\images\couple-1.jpg" />
     <Content Include="Content\images\couple-2.jpg" />
     <Content Include="Content\images\couple-3.jpg" />
+    <Content Include="Content\images\d1.jpg" />
+    <Content Include="Content\images\d2.jpg" />
+    <Content Include="Content\images\d3.jpg" />
+    <Content Include="Content\images\d4.jpg" />
+    <Content Include="Content\images\d5.jpg" />
+    <Content Include="Content\images\d6.jpg" />
     <Content Include="Content\images\fav.png" />
     <Content Include="Content\images\gallery-1.jpg" />
     <Content Include="Content\images\gallery-2.jpg" />

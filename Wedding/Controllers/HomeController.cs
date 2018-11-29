@@ -78,7 +78,7 @@ namespace Wedding.Controllers
                 Body = body
             })
             {
-                smtp.Send(message);
+               // smtp.Send(message);
             }
             return Json("OK", JsonRequestBehavior.AllowGet);
         }

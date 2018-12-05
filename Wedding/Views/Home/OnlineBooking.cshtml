@@ -229,6 +229,7 @@
     function process(e) {
 
         if ($('#OnlineForm').valid()) {
+            $('#loader').show();
 
             var onlineBooking = new Object();
             onlineBooking.MrName = $("#mrname").val();
@@ -267,14 +268,18 @@
                 data: onlineBooking,
                 success: function (response) {
                     if (response != null) {
-                        $('#Successmsg').modal('show');
+                        location.href = '/Home/Payment/';
+                        //$('#loader').hide();
+                        //$('#Successmsg').modal('show');
                     } else {
-                       // $('#Successmsg').modal('show');
+                        $('#loader').hide();
                     }
                 },
                 failure: function (response) {
+                    $('#loader').hide();
                 },
                 error: function (response) {
+                    $('#loader').hide();
                 }
             });
         }

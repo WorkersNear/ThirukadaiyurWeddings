@@ -63,6 +63,9 @@ namespace Wedding.Controllers
             " Photography :" + onlineBooking.Photography + "\n" +
             " VideoCoverage: " + onlineBooking.VideoCoverage);
 
+
+            Session["Customer"] = onlineBooking.MrName;
+            
             var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
@@ -78,10 +81,46 @@ namespace Wedding.Controllers
                 Body = body
             })
             {
-                // smtp.Send(message);
+                smtp.Send(message);
             }
 
             return Json("Ok", JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpPost]
+        public ActionResult ContactUs(ContactUs contactus)
+        {
+            var fromAddress = new MailAddress("bala1991.phoenix@gmail.com", "ContactUS_Messege" + DateTime.Now);
+            var toAddress = new MailAddress("abirami.arangements@gmail.com", "Abirami_Arrangements");
+            const string fromPassword = "X3haquc6";
+            const string subject = "ContactUS_Messege:";
+
+            string body = (" Name: " + contactus.name + "\n" +
+            " Location:" + contactus.loc + "\n" +
+            " Contact :" + contactus.contact + "\n" +
+            " Subject: " + contactus.subject + "\n" +
+            " Message: " + contactus.message + "\n");          
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body
+            })
+            {
+                 smtp.Send(message);
+            }
+            //return Json("Ok", JsonRequestBehavior.AllowGet);
+            return RedirectToAction("OnlineBookingconfirmation");
         }
 
         public ActionResult OnlineBookingconfirmation()
@@ -91,15 +130,22 @@ namespace Wedding.Controllers
 
         public ActionResult Payment()
         {
+            string customer = "Newcustomer"+DateTime.Now;
+            if ((string)Session["Customer"] != null)
+            {
+                customer = Convert.ToString(Session["Customer"]);
+            }
+            
+
             FormtoRequest model = new FormtoRequest();
             model.appId = ConfigurationManager.AppSettings["AppId"];
             model.orderId = DateTime.Now.Ticks.ToString();
             model.orderNote = "Abirami Arrangements payment";
             model.orderCurrency = "INR";
-            model.customerName = "SSSS";
-            model.customerEmail = "mgilayaraja@gmail.com";
-            model.customerPhone = "9600440135";
-            model.orderAmount = "50";
+            model.customerName = customer;
+            model.customerEmail = "abirami.arrangements@gmail.com";
+            model.customerPhone = "9585831457";
+            model.orderAmount = "2000";
             model.notifyUrl = "http://localhost:53024/Home/Index/";
             model.returnUrl = "http://localhost:53024/Home/OnlineBookingconfirmation/";
 
@@ -116,9 +162,7 @@ namespace Wedding.Controllers
             byte[] gensignature = hmacsha256.ComputeHash(StringEncode(signatureData));
             string signature = Convert.ToBase64String(gensignature);
             ViewData["signature"] = signature;
-
             string mode = ConfigurationManager.AppSettings["Mode"];
-
             if (mode == "PROD")
             {
                 ViewData["url"] = "https://www.cashfree.com/checkout/post/submit";

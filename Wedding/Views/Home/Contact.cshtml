@@ -1,4 +1,6 @@
-﻿<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../../Content/images/t4.jpg);">
+﻿@model  Wedding.Models.ContactUs
+
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../../Content/images/t4.jpg);">
     <div class="overlay"></div>
     <div class="fh5co-container">
         <div class="row">
@@ -6,7 +8,7 @@
                 <div class="display-t">
                     <div class="display-tc animate-box" data-animate-effect="fadeIn">
                         <h1>Contact Us</h1>
-                        <h2>For 60th Marriage,Thirukadaiyur Wedding Arrangements Booking Contact +916379158216  +919585831457<br /><a href="/Home/OnlineBooking/" >Click here to visit our services and packages.</a></h2>
+                        <h2>For 60th Marriage,Thirukadaiyur Wedding Arrangements Booking Contact +916379158216  +919585831457<br /><a href="/Home/Index/#fh5co-couple-story" >Click here to visit our services and packages.</a></h2>
                     </div>
                 </div>
             </div>
@@ -18,21 +20,21 @@
         <div class="row">
             <div class="col-md-6 col-md-push-6 animate-box">
                 <h3>Get In Touch</h3>
-                <form action="#">
+                <form id = "MsgForm" action="#">
                     <div class="row form-group">
                         <div class="col-md-6">
-                            <label for="fname">First Name</label>
-                            <input type="text" id="fname" class="form-control" placeholder="Your firstname">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your firstname">
                         </div>
                         <div class="col-md-6">
-                            <label for="lname">Last Name</label>
-                            <input type="text" id="lname" class="form-control" placeholder="Your lastname">
+                            <label for="loc">Location</label>
+                            <input type="text" id="loc" class="form-control" placeholder="Your location">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <label for="email">Email</label>
-                            <input type="text" id="email" class="form-control" placeholder="Your email address">
+                            <label for="contact ">Mobile or Email</label>
+                            <input name="contact" type="text" id="contact" class="form-control" placeholder="Your mobile or email address">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -48,7 +50,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Send Message" class="btn btn-primary">
+                        <input type="submit" value="Send Message" onclick="process();"class="btn btn-primary" >
                     </div>
                 </form>
             </div>
@@ -68,3 +70,122 @@
 
     </div>
 </div>
+<div id="map" class="fh5co-map"></div>
+
+<!--Success Model-->
+<div class="modal fade" id="Successmsg1" tabindex="-1" role="dialog" aria-labelledby="SuccessmsgLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="glyphicon glyphicon-ok-circle statusscheduled" style="font-size:40px;padding-left:258px;    color: limegreen;"></span> <h5 class="modal-title" id="exampleModalLabel" style="text-align:center;font-size:20px">Success!</h5>
+                <p>Thank You! <br />We will contact you as soon as possible. For Clarifications, Please Contact +916379158216 and  +919585831457</p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 245px;">Ok</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" charset="UTF-8">
+
+
+    $(document).ready(function () {
+        $("#MsgForm").validate({
+            rules: {
+                ignore: ":not(:visible)",
+                contact: {
+                    required: true
+                },
+
+            },
+            messages: {
+                contact: {
+                    required: '* Mobile or Email is required',
+                }
+            }
+        });
+    });
+
+
+    function moveMapToThirukadaiyur(map) {
+        map.setCenter({ lat: 11.07482, lng: 79.806662 });
+        map.setZoom(7);
+    }
+
+    function addMarkersToMap(map) {
+        var parisMarker = new H.map.Marker({ lat: 11.07482, lng: 79.806662 });
+        map.addObject(parisMarker);
+
+    }
+    /**
+     * Boilerplate map initialization code starts below:
+     */
+
+    //Step 1: initialize communication with the platform
+    var platform = new H.service.Platform({
+        'app_id': 'TZl3NGW3bvKiIF1nMzfv',
+        'app_code': 'zEcduesQE0UMns-IIeBIlw',
+        useHTTPS: true
+    });
+    var pixelRatio = window.devicePixelRatio || 1;
+    var defaultLayers = platform.createDefaultLayers({
+        tileSize: pixelRatio === 1 ? 256 : 512,
+        ppi: pixelRatio === 1 ? undefined : 320
+    });
+
+    //Step 2: initialize a map  - not specificing a location will give a whole world view.
+    var map = new H.Map(document.getElementById('map'),
+      defaultLayers.normal.map, { pixelRatio: pixelRatio });
+
+    //Step 3: make the map interactive
+    // MapEvents enables the event system
+    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+    // Create the default UI components
+    var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+    // Now use the map as required...
+    moveMapToThirukadaiyur(map);
+    addMarkersToMap(map);
+
+
+    function process(e) {
+        
+
+        if ($('#MsgForm').valid()) {
+            $('#loader').show();
+
+            var Msg = new Object();
+            Msg.name = $("#name").val();
+            Msg.loc = $('#loc').val();
+            Msg.contact = $('#contact').val();
+            Msg.subject = $('#subject').val();
+            Msg.message = $('#message').val();      
+
+           
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ContactUs", "Home")',
+                data: JSON.stringify(Msg),
+                data: Msg,
+                success: function (response) {
+                    if (response == "Ok") {
+                        location.href = "/Home/OnlineBookingconfirmation/";                        
+                    } else {
+                        $('#loader').hide();
+                    }
+                },
+                failure: function (response) {
+                    $('#loader').hide();
+                },
+                error: function (response) {
+                    $('#loader').hide();
+                }
+            });
+        }
+    }
+
+
+</script>

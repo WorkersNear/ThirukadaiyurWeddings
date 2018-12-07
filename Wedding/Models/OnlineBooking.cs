@@ -24,4 +24,14 @@ namespace Wedding.Models
         public string Bhramin { get; set; }
 
     }
+
+    public class ContactUs
+    {
+        public string name { get; set; }
+        public string loc { get; set; }
+        public string contact { get; set; }
+        public string subject { get; set; }
+        public string message { get; set; }
+    }
+
 }

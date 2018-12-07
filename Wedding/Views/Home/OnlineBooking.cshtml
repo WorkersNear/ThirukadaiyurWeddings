@@ -1,15 +1,15 @@
 ﻿@model  Wedding.Models.OnlineBooking
 
-<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image: url('../../Content/images/d1.jpg'); ">
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image: url('../../Content/images/d1.jpg');">
     <div class="overlay"></div>
     <div class="fh5co-container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
                 <div class="display-t">
-                    <div class="display-tc">
+                    <div class="display-tc animate-box" data-animate-effect="fadeIn">
                         <h1>Online Booking</h1>
                         <h2>
-                            For 60th Marriage and Wedding Arrangements- Booking Enquiry & Details or Clarifications Please Contact +916379158216 and  +919585831457<br />
+                            For 60th Marriage and Wedding Arrangements- Booking Enquiry,Please Contact +916379158216 and  +919585831457<br />
                             <a>அபிஷேக முறைகள் மற்றும் முன்பதிவு விபரங்கள் கீழே கொடுக்கப்பட்டுள்ளது</a>
                         </h2>
                     </div>
@@ -182,11 +182,8 @@
                         <li>  வெற்றிலை பாக்கு                                           </li>
                         <li>  சீர்வரிசைக்கு உள்ள தட்டு -7 மற்றும் அதற்கான பழங்கள்  </li>
                         <li>  தாம்பூல பை</li>
-
                     </ul>
                 </div>
-
-
             </div>
         </div>
 
@@ -220,7 +217,7 @@
             },
             messages: {
                 mob: {
-                    required: '* Mobile Number is required',
+                    required: '* Mobile number is required',
                 }
             }
         });
@@ -269,7 +266,7 @@
                 success: function (response) {
                     if (response != null) {
                         location.href = '/Home/Payment/';
-                        //$('#loader').hide();
+                        $('#loader').hide();
                         //$('#Successmsg').modal('show');
                     } else {
                         $('#loader').hide();

@@ -1,6 +1,6 @@
 ﻿@model  Wedding.Models.ContactUs
 
-<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../../Content/images/t7.png);">
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../../Content/images/w5.jpg);">
     <div class="overlay"></div>
     <div class="fh5co-container">
         <div class="row">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Send Message" onclick="process();"class="btn btn-primary" >
+                        <input type="button" value="Send Message" onclick="process();"class="btn btn-primary" >
                     </div>
                 </form>
             </div>
@@ -161,9 +161,7 @@
             Msg.loc = $('#loc').val();
             Msg.contact = $('#contact').val();
             Msg.subject = $('#subject').val();
-            Msg.message = $('#message').val();      
-
-           
+            Msg.message = $('#message').val();   
 
             $.ajax({
                 type: "POST",
@@ -171,17 +169,23 @@
                 data: JSON.stringify(Msg),
                 data: Msg,
                 success: function (response) {
+                    debugger;
                     if (response == "Ok") {
+                        $('#loader').hide();
                         location.href = "/Home/OnlineBookingconfirmation/";                        
                     } else {
                         $('#loader').hide();
+                        location.href = "/Home/OnlineBookingconfirmation/";                       
                     }
                 },
                 failure: function (response) {
                     $('#loader').hide();
+                    location.href = "/Home/OnlineBookingconfirmation/";
+                    
                 },
                 error: function (response) {
                     $('#loader').hide();
+                    location.href = "/Home/OnlineBookingconfirmation/";                   
                 }
             });
         }

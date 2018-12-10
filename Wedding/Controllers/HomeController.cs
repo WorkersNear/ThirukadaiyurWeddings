@@ -117,10 +117,10 @@ namespace Wedding.Controllers
                 Body = body
             })
             {
-                 smtp.Send(message);
+                //smtp.Send(message);
             }
-            //return Json("Ok", JsonRequestBehavior.AllowGet);
-            return RedirectToAction("OnlineBookingconfirmation");
+            return Json("Ok", JsonRequestBehavior.AllowGet);
+           // return RedirectToAction("OnlineBookingconfirmation");
         }
 
         public ActionResult OnlineBookingconfirmation()

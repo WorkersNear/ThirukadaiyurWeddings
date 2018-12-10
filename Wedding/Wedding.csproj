@@ -191,6 +191,9 @@
     <Content Include="Content\images\t6.jpg" />
     <Content Include="Content\images\t7.png" />
     <Content Include="Content\images\timthumb1.jpg" />
+    <Content Include="Content\images\w1.jpg" />
+    <Content Include="Content\images\w2.jpg" />
+    <Content Include="Content\images\w3.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

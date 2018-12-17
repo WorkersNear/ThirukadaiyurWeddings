@@ -160,6 +160,7 @@
     <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\icomoon\icomoon.svg" />
     <Content Include="Content\images\60thmarriage.jpg" />
+    <Content Include="Content\images\60thmarriageinthirukadaiyur.jpg" />
     <Content Include="Content\images\Abirami amman.jpg" />
     <Content Include="Content\images\Abiramiammanthirukadaiyur.jpg" />
     <Content Include="Content\images\bride.jpg" />
@@ -193,9 +194,12 @@
     <Content Include="Content\images\t7.png" />
     <Content Include="Content\images\Thirukadaiyur Abirami.jpg" />
     <Content Include="Content\images\Thirukadaiyur.jpg" />
+    <Content Include="Content\images\thirukadaiyur60thmarriageprocedure.jpg" />
     <Content Include="Content\images\Thirukadaiyurtemple.jpg" />
     <Content Include="Content\images\Thirukadaiyurtemple60thmarriage.jpg" />
     <Content Include="Content\images\Thirukadaiyurtemplemarriage.jpg" />
+    <Content Include="Content\images\Thirukadaiyurtemplemarriages.jpg" />
+    <Content Include="Content\images\Thirukadaiyurtemplemarriages1.jpg" />
     <Content Include="Content\images\timthumb1.jpg" />
     <Content Include="Content\images\w1.jpg" />
     <Content Include="Content\images\w2.jpg" />

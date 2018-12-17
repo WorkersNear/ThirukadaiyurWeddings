@@ -83,10 +83,9 @@ namespace Wedding.Controllers
             {
                 smtp.Send(message);
             }
-
-            return Json("Ok", JsonRequestBehavior.AllowGet);
+            
+            return RedirectToAction("OnlineBookingconfirmation");
         }
-
 
         [HttpPost]
         public ActionResult ContactUs(ContactUs contactus)
@@ -145,8 +144,8 @@ namespace Wedding.Controllers
             model.customerEmail = "abirami.arrangements@gmail.com";
             model.customerPhone = "9585831457";
             model.orderAmount = "2000";
-            model.notifyUrl = "http://localhost:53024/Home/Index/";
-            model.returnUrl = "http://localhost:53024/Home/OnlineBookingconfirmation/";
+            model.notifyUrl = "http://www.thirukadaiyurweddings.com/Home/Index/";
+            model.returnUrl = "http://www.thirukadaiyurweddings.com/Home/OnlineBookingconfirmation/";
 
             string secretKey = ConfigurationManager.AppSettings["SecretKey"];
             string signatureData = "";
@@ -172,7 +171,6 @@ namespace Wedding.Controllers
             }
             return View(model);
         }
-
 
         [HttpPost]
         public ActionResult HandleRequest(FormtoRequest model)

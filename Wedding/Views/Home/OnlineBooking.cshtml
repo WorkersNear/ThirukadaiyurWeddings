@@ -1,6 +1,6 @@
 ﻿@model  Wedding.Models.OnlineBooking
 
-<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image: url('../../Content/images/w2.jpg');">
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image: url('../../Content/images/thirukadaiyur60thmarriageprocedure.jpg');">
     <div class="overlay"></div>
     <div class="fh5co-container">
         <div class="row">
@@ -9,8 +9,8 @@
                     <div class="display-tc animate-box" data-animate-effect="fadeIn">
                         <h1>Online Booking</h1>
                         <h2>
-                            For 60th Marriage and Wedding Arrangements- Booking Enquiry,Please Contact +916379158216 and  +919585831457<br />
-                            <a>அபிஷேக முறைகள் மற்றும் முன்பதிவு விபரங்கள் கீழே கொடுக்கப்பட்டுள்ளது</a>
+                            For Thirukadaiyur 60th Marriage and Arrangements- Booking Enquiry,Please Contact +916379158216 and  +919585831457<br />
+                            <a href="/Home/Index/#fh5co-couple-story" style=" font-weight:bold"> View Sashtiapthapoorthi Pooja Procedure and Cost </a><br /><br /><a> முன்பதிவு விபரங்கள் கீழே கொடுக்கப்பட்டுள்ளது</a>
                         </h2>
                     </div>
                 </div>
@@ -265,9 +265,8 @@
                 data: onlineBooking,
                 success: function (response) {
                     if (response != null) {
-                        location.href = '/Home/Payment/';
                         $('#loader').hide();
-                        //$('#Successmsg').modal('show');
+                        location.href = '/Home/Payment/';                       
                     } else {
                         $('#loader').hide();
                     }

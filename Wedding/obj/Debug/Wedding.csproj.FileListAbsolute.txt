@@ -72,6 +72,9 @@ D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\bin\System.Web.Razor.dll
 D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\bin\System.Web.WebPages.Deployment.dll
 D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\bin\System.Web.WebPages.dll
 D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\bin\System.Web.WebPages.Razor.dll
+D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\bin\Twilio.dll
 D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\bin\WebGrease.dll
+D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\bin\Twilio.xml
+D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\obj\Debug\Wedding.csprojResolveAssemblyReference.cache
 D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\obj\Debug\Wedding.dll
 D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\obj\Debug\Wedding.pdb

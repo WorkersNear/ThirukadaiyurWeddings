@@ -5,9 +5,9 @@
             <div class="col-md-8 col-md-offset-2 text-center">
                 <div class="display-t">
                     <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                        <h1>Welcome to Thirukadaiyur</h1>
-                        <h2>60th Marriage Pooja Timings, Sashtiapthapoorthi Procedure and Cost at Thirukadaiyur Temple 
-                        <br/>For Thirukadaiyur Temple 60th Marriage Arrangements-Booking Contacts: +916379158216 and +919585831457<br/><br /><a style="font-weight:bold;" href="#Sashtiapthapoorthi_Pooja_Procedure_and_Cost">Click to View Sashtiapthapoorthi Procedure and Pooja Rates</a></h2>     
+                        <h1>Abirami Arrangements</h1>
+                        <h2>60th Marriage Pooja Timings, Sashtiapthapoorthi Procedure and Cost at Thirukadaiyur  
+                        <br/>For Hotels,Food, Photography..etc Arrangements -Booking Contacts: +916379158216 and +919585831457<br/><br /><a style="font-weight:bold;" href="#Sashtiapthapoorthi_Pooja_Procedure_and_Cost">Click to View Sashtiapthapoorthi Procedure and Pooja Rates</a></h2>     
                                        
                         </div>
                     
@@ -117,7 +117,7 @@
                 <span class="icon" style="font-size: 40px;">
                     <i class="icon-emoji-happy"></i>
                 </span>
-                Book your ceremony online with Just Rs-2000 (for temple registration).  remaining amount will be collected at the end of ceremony.
+                Book your ceremony online with Just Rs-2000 (for temple registration).
             </a>
         </div>
     </div>
@@ -205,7 +205,7 @@
         </div>
         <div class="row animate-box">
             <div class="col-md-10 col-md-offset-1">
-                <form class="form-inline">
+                <form class="form-inline" id="msgform">
                     <div class="col-md-4 col-sm-4">
                         <div class="form-group">
                             <label for="name" class="sr-only">Name</label>
@@ -214,18 +214,74 @@
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div class="form-group">
-                            <label for="email" class="sr-only">Mobile</label>
-                            <input type="email" class="form-control" id="email" placeholder="Mobile">
+                            <label for="Mobile" class="sr-only">Mobile</label>
+                            <input type="Mobile" class="form-control" id="Mobile" placeholder="Mobile">
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <button type="submit" class="btn btn-default btn-block">Call me back</button>
+                        <button type="button" class="btn btn-default btn-block" onclick="sendmsg();">Call me back</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<script>
+
+
+    $(document).ready(function () {
+        $("#msgform").validate({
+            rules: {
+                ignore: ":not(:visible)",
+            
+                Mobile: {
+                    required: true
+                }              
+
+            },
+            messages: {
+                Mobile: {
+                    required: '* Mobile number is required',
+                }
+               
+            }
+        });
+    });
+    function sendmsg(e) {
+
+        if ($('#msgform').valid()) {
+            $('#loader').show();
+
+            var msg = new Object();
+            msg.Name = $("#name").val();           
+            msg.MobileNumber = $('#Mobile').val();         
+           
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("Enquiry", "Home")',
+                data: JSON.stringify(msg),
+                data: msg,
+                success: function (response) {
+                    if (response != null) {
+                        $('#loader').hide();
+                      
+                    } else {
+                        $('#loader').hide();
+                    }
+                },
+                failure: function (response) {
+                    $('#loader').hide();
+                },
+                error: function (response) {
+                    $('#loader').hide();
+                }
+            });
+        }
+        else {
+            $('#Mobile').focus();
+        }
+    }
+</script>
 
 
 

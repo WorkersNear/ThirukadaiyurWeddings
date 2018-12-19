@@ -8,6 +8,9 @@ using System.Text;
 using System.Web.Mvc;
 using Wedding.Models;
 using System.Configuration;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
 
 
 namespace Wedding.Controllers
@@ -252,6 +255,25 @@ namespace Wedding.Controllers
         //{
         //    return View(new ErrorViewModel { RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         //}
+
+
+        [HttpPost]
+        public ActionResult Enquiry(Enquiry enq)
+        {
+            TwilioClient.Init(
+                Environment.GetEnvironmentVariable("ACdfdb075353f1efca1f6e2fb7da8d49ab"), Environment.GetEnvironmentVariable("1a7a04c388cbc1ef65741f3d77161594")
+                );
+
+            MessageResource.Create(
+                to: new PhoneNumber("9585831457"),
+               //from: new PhoneNumber("+17196248486"),
+                  from: new PhoneNumber("+15005550006"),
+             
+                body: "test" 
+                );
+
+            return RedirectToAction("OnlineBookingconfirmation");
+        }
 
     }
 }

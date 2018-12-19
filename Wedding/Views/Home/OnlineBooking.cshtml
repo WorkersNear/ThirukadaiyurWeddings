@@ -207,7 +207,7 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        $("#OnlineForm").validate({
+         $("#OnlineForm").validate({
             rules: {
                 ignore: ":not(:visible)",
                 mob: {
@@ -278,6 +278,10 @@
                     $('#loader').hide();
                 }
             });
+        }
+        else
+        {
+            $('#mob').focus(); 
         }
     }
 

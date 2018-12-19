@@ -34,4 +34,11 @@ namespace Wedding.Models
         public string message { get; set; }
     }
 
+    public class Enquiry
+    {
+        public string Name { get; set; }
+        public string MobileNumber { get; set; }
+
+    }
+
 }

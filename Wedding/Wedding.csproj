@@ -168,6 +168,7 @@
     <Content Include="Content\images\60thmarriageinthirukadaiyur.jpg" />
     <Content Include="Content\images\Abirami amman.jpg" />
     <Content Include="Content\images\Abiramiammanthirukadaiyur.jpg" />
+    <Content Include="Content\images\BreakFast.jpg" />
     <Content Include="Content\images\bride.jpg" />
     <Content Include="Content\images\couple-1.jpg" />
     <Content Include="Content\images\couple-2.jpg" />
@@ -177,6 +178,8 @@
     <Content Include="Content\images\d3.jpg" />
     <Content Include="Content\images\d5.jpg" />
     <Content Include="Content\images\d6.jpg" />
+    <Content Include="Content\images\dinner.jpg" />
+    <Content Include="Content\images\Hotel1.jpg" />
     <Content Include="Content\images\fav.png" />
     <Content Include="Content\images\gallery-1.jpg" />
     <Content Include="Content\images\gallery-2.jpg" />
@@ -188,6 +191,14 @@
     <Content Include="Content\images\gallery-8.jpg" />
     <Content Include="Content\images\gallery-9.jpg" />
     <Content Include="Content\images\groom.jpg" />
+    <Content Include="Content\images\Hotelsinthirukadaiyur1.jpg" />
+    <Content Include="Content\images\Hotelsinthirukadaiyur2.jpg" />
+    <Content Include="Content\images\Hotelsinthirukadaiyur3.jpg" />
+    <Content Include="Content\images\Hotelsinthirukadaiyur4.jpg" />
+    <Content Include="Content\images\Hotelsinthirukadaiyur42.jpg" />
+    <Content Include="Content\images\Hotelsinthirukadaiyur5.jpg" />
+    <Content Include="Content\images\Hotelsinthirukadaiyur62.jpg" />
+    <Content Include="Content\images\Hotelsinthirukadaiyur6 .jpg" />
     <Content Include="Content\images\img_bg_1.jpg" />
     <Content Include="Content\images\img_bg_2.jpg" />
     <Content Include="Content\images\img_bg_3.jpg" />
@@ -195,6 +206,11 @@
     <Content Include="Content\images\img_bg_5.jpg" />
     <Content Include="Content\images\loader.gif" />
     <Content Include="Content\images\loc.png" />
+    <Content Include="Content\images\Lunch.JPG" />
+    <Content Include="Content\images\Roomsinthirukadaiyur1.jpeg" />
+    <Content Include="Content\images\Roomsinthirukadaiyur2.jpg" />
+    <Content Include="Content\images\Roomsinthirukadaiyur4.jpg" />
+    <Content Include="Content\images\Roomsinthirukadaiyur5.jpg" />
     <Content Include="Content\images\t6.jpg" />
     <Content Include="Content\images\t7.png" />
     <Content Include="Content\images\Thirukadaiyur Abirami.jpg" />

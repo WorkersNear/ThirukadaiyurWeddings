@@ -1836,7 +1836,7 @@ form label {
   background: url(../images/loader.gif) center no-repeat #fff;
 }
 
-.js .animate-box {
+.js . {
   opacity: 0;
 }
 

@@ -77,3 +77,4 @@ D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\bin\WebGrease.dll
 D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\bin\Twilio.xml
 D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\obj\Debug\Wedding.dll
 D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\obj\Debug\Wedding.pdb
+D:\BalamuruganR\ThirukadaiyurWeddings\Wedding\obj\Debug\Wedding.csprojResolveAssemblyReference.cache

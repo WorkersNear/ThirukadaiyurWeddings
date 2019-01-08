@@ -53,7 +53,6 @@
        
     </div>
 </div>
-
 <section id="Sashtiapthapoorthi_Pooja_Procedure_and_Cost">
     <div id="fh5co-couple-story">
         <div class="container">
@@ -134,14 +133,12 @@
                     <h1><a href="/Home/About/#ourservices" style="font-weight: bold; font-size: 25px; color: darkorange;"> Hotels Rooms in Thirukadaiyur</a></h1>                    
                     <h1><a href="/Home/About/#Food" style="font-weight: bold; font-size: 25px; color: tomato;">Food Arrangements</a></h1>
                     <h1><a href="/Home/About/#neartemples" style="font-weight: bold; font-size: 25px; color: darkcyan;">Thirukadaiyur Nearby Temples</a></h1>
-                    @*<h1><a href="/Home/About/#ourservices" style="font-weight: bold; font-size: 25px; color: darkmagenta;">ATM and Banks in Thirukadaiyur</a></h1>
+                    <h1><a href="/Home/About/#ourservices" style="font-weight: bold; font-size: 25px; color: darkmagenta;">ATM and Banks in Thirukadaiyur</a></h1>
                     <h1><a href="/Home/About/#ourservices" style="font-weight: bold; font-size: 25px; color: fuchsia;">Thirukadaiyur Temple Timings</a></h1>
                     <h1><a href="/Home/About/#ourservices" style="font-weight: bold; font-size: 25px; color: darkblue;">Tourist Places Nearby Thirukadaiyur</a></h1>  
-                    <h1><a href="/Home/About/#ourservices" style="font-weight: bold; font-size: 25px; color: forestgreen;">Thirukadaiyur Temple Bus Route</a></h1>*@                   
-                   <br />
-                    
-                    <i  style=" font-size: 35px;" class="icon-clock"></i>                   
-                   <h1>@DateTime.Now.ToString()</h1>
+                    <h1><a href="/Home/About/#ourservices" style="font-weight: bold; font-size: 25px; color: forestgreen;">Thirukadaiyur Temple Bus Route</a></h1>                   
+                  
+                  
 
                 </div>
             </div>
@@ -236,83 +233,24 @@
                     <div class="col-md-4 col-sm-4">
                         <div class="form-group">
                             <label for="name" class="sr-only">Name</label>
-                            <input type="name" class="form-control" id="name" placeholder="Name">
+                            <input type="text" class="form-control" id="name" placeholder="Name">
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div class="form-group">
                             <label for="Mobile" class="sr-only">Mobile</label>
-                            <input type="Mobile" class="form-control" id="Mobile" placeholder="Mobile">
+                            <input type="text" class="form-control"  placeholder="Mobile">
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <button type="button" class="btn btn-default btn-block" onclick="sendmsg();">Call me back</button>
+                        <button type="button" class="btn btn-default btn-block" >Call me back</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<script>
 
-
-    $(document).ready(function () {
-
-       
-       
-
-        $("#msgform").validate({
-            rules: {
-                ignore: ":not(:visible)",
-            
-                Mobile: {
-                    required: true
-                }              
-
-            },
-            messages: {
-                Mobile: {
-                    required: '* Mobile number is required',
-                }
-               
-            }
-        });
-    });
-    function sendmsg(e) {
-
-        if ($('#msgform').valid()) {
-            $('#loader').show();
-
-            var msg = new Object();
-            msg.Name = $("#name").val();           
-            msg.MobileNumber = $('#Mobile').val();         
-           
-            $.ajax({
-                type: "POST",
-                url: '@Url.Action("Enquiry", "Home")',
-                data: JSON.stringify(msg),
-                data: msg,
-                success: function (response) {
-                    if (response != null) {
-                        $('#loader').hide();
-                      
-                    } else {
-                        $('#loader').hide();
-                    }
-                },
-                failure: function (response) {
-                    $('#loader').hide();
-                },
-                error: function (response) {
-                    $('#loader').hide();
-                }
-            });
-        }
-        else {
-            $('#Mobile').focus();
-        }
-    }
-</script>
 
 
 

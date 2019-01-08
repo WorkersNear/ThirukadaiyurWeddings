@@ -1860,7 +1860,8 @@ Sizzle.attr = function( elem, name ) {
 		val;
 };
 
-Sizzle.error = function( msg ) {
+Sizzle.error = function (msg) {
+  
 	throw new Error( "Syntax error, unrecognized expression: " + msg );
 };
 

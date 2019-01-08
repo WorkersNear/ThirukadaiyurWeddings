@@ -8,13 +8,12 @@ using System.Text;
 using System.Web.Mvc;
 using Wedding.Models;
 using System.Configuration;
-using Twilio;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
+
 
 
 namespace Wedding.Controllers
 {
+    [FilterConfig.Tls]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -147,8 +146,8 @@ namespace Wedding.Controllers
             model.customerEmail = "abirami.arrangements@gmail.com";
             model.customerPhone = "9585831457";
             model.orderAmount = "2000";
-            model.notifyUrl = "http://www.thirukadaiyurweddings.com/Home/Index/";
-            model.returnUrl = "http://www.thirukadaiyurweddings.com/Home/OnlineBookingconfirmation/";
+            model.notifyUrl = "https://www.thirukadaiyurweddings.com/Home/Index/";
+            model.returnUrl = "https://www.thirukadaiyurweddings.com/Home/OnlineBookingconfirmation/";
 
             string secretKey = ConfigurationManager.AppSettings["SecretKey"];
             string signatureData = "";
@@ -257,23 +256,7 @@ namespace Wedding.Controllers
         //}
 
 
-        [HttpPost]
-        public ActionResult Enquiry(Enquiry enq)
-        {
-            TwilioClient.Init(
-                Environment.GetEnvironmentVariable("ACdfdb075353f1efca1f6e2fb7da8d49ab"), Environment.GetEnvironmentVariable("1a7a04c388cbc1ef65741f3d77161594")
-                );
-
-            MessageResource.Create(
-                to: new PhoneNumber("9585831457"),
-               //from: new PhoneNumber("+17196248486"),
-                  from: new PhoneNumber("+15005550006"),
-             
-                body: "test" 
-                );
-
-            return RedirectToAction("OnlineBookingconfirmation");
-        }
+       
 
     }
 }

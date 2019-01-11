@@ -8,8 +8,7 @@ using System.Text;
 using System.Web.Mvc;
 using Wedding.Models;
 using System.Configuration;
-
-
+using System.IO;
 
 namespace Wedding.Controllers
 {
@@ -67,25 +66,41 @@ namespace Wedding.Controllers
 
 
             Session["Customer"] = onlineBooking.MrName;
-            
-            var smtp = new SmtpClient
+
+            if (ConfigurationManager.AppSettings["IsLive"] == "true")
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            };
-            using (var message = new MailMessage(fromAddress, toAddress)
-            {
-                Subject = subject,
-                Body = body
-            })
-            {
-                smtp.Send(message);
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+                })
+                {
+                    smtp.Send(message);
+                }
+
+                string apiKey = ConfigurationManager.AppSettings["SMSApiKey"];
+                string mobileNumber = "+91" + onlineBooking.MobileNumber;
+                string SenderID = ConfigurationManager.AppSettings["SenderID"];
+                string Message = "Thank you for using Thirukadaiyur weddings. Your booking is confirmed.For hotels and foods please visit https://www.thirukadaiyurweddings.com/Home/About/#ourservices. Contacts: 9585831457";
+                string ServiceName = "TEMPLATE_BASED";
+                string requestUrl = "https://smsapi.24x7sms.com/api_2.0/SendSMS.aspx?APIKEY=" + apiKey + "&MobileNo=" + mobileNumber + "&SenderID=" + SenderID + "&Message=" + Message + "&ServiceName=" + ServiceName + "";
+                WebRequest webRequest = WebRequest.Create(requestUrl);
+                WebResponse webResponse = webRequest.GetResponse();
+                StreamReader streamReader = new StreamReader(webResponse.GetResponseStream());
+                string result = streamReader.ReadToEnd();
+                webResponse.Dispose();
+                streamReader.Dispose();
             }
-            
+
             return RedirectToAction("OnlineBookingconfirmation");
         }
 
@@ -101,7 +116,7 @@ namespace Wedding.Controllers
             " Location:" + contactus.loc + "\n" +
             " Contact :" + contactus.contact + "\n" +
             " Subject: " + contactus.subject + "\n" +
-            " Message: " + contactus.message + "\n");          
+            " Message: " + contactus.message + "\n");
 
             var smtp = new SmtpClient
             {
@@ -119,7 +134,7 @@ namespace Wedding.Controllers
             })
             {
                 smtp.Send(message);
-            }            
+            }
             return RedirectToAction("OnlineBookingconfirmation");
         }
 
@@ -130,12 +145,12 @@ namespace Wedding.Controllers
 
         public ActionResult Payment()
         {
-            string customer = "Newcustomer"+DateTime.Now;
+            string customer = "Newcustomer" + DateTime.Now;
             if ((string)Session["Customer"] != null)
             {
                 customer = Convert.ToString(Session["Customer"]);
             }
-            
+
 
             FormtoRequest model = new FormtoRequest();
             model.appId = ConfigurationManager.AppSettings["AppId"];
@@ -256,7 +271,7 @@ namespace Wedding.Controllers
         //}
 
 
-       
+
 
     }
 }

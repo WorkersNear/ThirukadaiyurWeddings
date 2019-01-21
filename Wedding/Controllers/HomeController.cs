@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Wedding.Models;
 using System.Configuration;
 using System.IO;
+using System.Web;
 
 namespace Wedding.Controllers
 {
@@ -91,9 +92,9 @@ namespace Wedding.Controllers
                 string mobileNumber = "+91" + onlineBooking.MobileNumber;
                 string SenderID = ConfigurationManager.AppSettings["SenderID"];
                 string Message = "Thank you for using Thirukadaiyur weddings. Your booking is confirmed.For hotels and foods please visit https://www.thirukadaiyurweddings.com/Home/About/#ourservices. Contacts: 9585831457";
-                string ServiceName = "TEMPLATE_BASED";
-                string requestUrl = "https://smsapi.24x7sms.com/api_2.0/SendSMS.aspx?APIKEY=" + apiKey + "&MobileNo=" + mobileNumber + "&SenderID=" + SenderID + "&Message=" + Message + "&ServiceName=" + ServiceName + "";
-                WebRequest webRequest = WebRequest.Create(requestUrl);
+                Message = HttpUtility.UrlEncode(Message);
+                string URL = "https://smsapi.24x7sms.com/api_2.0/SendSMS.aspx?APIKEY=3IaTpqArkNl&MobileNo=9585831457&SenderID=ABRAMI&Message=" + Message + "&ServiceName=TEMPLATE_BASED";
+                WebRequest webRequest = WebRequest.Create(URL);
                 WebResponse webResponse = webRequest.GetResponse();
                 StreamReader streamReader = new StreamReader(webResponse.GetResponseStream());
                 string result = streamReader.ReadToEnd();
